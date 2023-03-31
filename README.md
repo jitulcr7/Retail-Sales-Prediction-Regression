@@ -1,30 +1,59 @@
 # Retail-Sales-Prediction-Regression
 
+
 Problem Description:
 Rossmann operates over 3,000 drug stores in 7 European countries. Currently, Rossmann store managers are tasked with predicting their daily sales for up to six weeks in advance. Store sales are influenced by many factors, including promotions, competition, school and state holidays, seasonality, and locality. With thousands of individual managers predicting sales based on their unique circumstances, the accuracy of results can be quite varied.
+My work includes various plots and graphs , visualizations , feature engineering , ensemble techniques , different ML algorithms with their respective parameter tuning , analysis and trends . Predictions are of 6 weeks of daily sales for 1,115 stores located across Germany.
 
-You are provided with historical sales data for 1,115 Rossmann stores. The task is to forecast the "Sales" column for the test set. Note that some stores in the dataset were temporarily closed for refurbishment.
+In this project, the Kaggle Rossman challenge is being taken on. The goal is to predict the Sales of a given store on a given day. Model performance is evaluated on the root mean absolute percentage error (MAPE).
 
-Data Description:
-Rossmann Stores Data.csv - historical data including Sales
+The dataset consists of two csv files: store.csv and train.csv
 
-store.csv - supplemental information about the stores
+Data Files:
 
-Data fields:
-Most of the fields are self-explanatory. The following are descriptions for those that aren't.
+train.csv holds info about each store. store.csv holds the sales info per day for each store.
 
-Id - an Id that represents a (Store, Date) duple within the test set
-Store - a unique Id for each store.
-Sales - the turnover for any given day (this is what you are predicting)
-Customers - the number of customers on a given day
-Open - an indicator for whether the store was open: 0 = closed, 1 = open
-StateHoliday - indicates a state holiday. Normally all stores, with few exceptions, are closed on state holidays. Note that all schools are closed on public holidays and weekends. a = public holiday, b = Easter holiday, c = Christmas, 0 = None
-SchoolHoliday - indicates if the (Store, Date) was affected by the closure of public schools
-StoreType - differentiates between 4 different store models: a, b, c, d
-Assortment - describes an assortment level: a = basic, b = extra, c = extended
-CompetitionDistance - distance in meters to the nearest competitor stor
-CompetitionOpenSince[Month/Year] - gives the approximate year and month of the time the nearest competitor was opened
-Promo - indicates whether a store is running a promo on that day
-Promo2 - Promo2 is a continuing and consecutive promotion for some stores: 0 = store is not participating, 1 = store is participating
-Promo2Since[Year/Week] - describes the year and calendar week when the store started participating in Promo2
-PromoInterval - describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store
+The repo contains main.py that runs the main script from step one until the end.
+
+# 1. Business Problem.
+Rossmann operates over 3,000 drug stores in 7 European countries. Currently, Rossmann store managers are tasked with predicting their daily sales for up to six weeks in advance. Store sales are influenced by many factors, including promotions, competition, school and state holidays, seasonality, and locality. With thousands of individual managers predicting sales based on their unique circumstances, the accuracy of results can be quite varied.
+
+# 2. Solution Strategy.
+My strategy to solve this challenge was:
+
+Step 01: Data Description: Use statistics metrics to identify data distributions.
+
+Step 02: Feature Engineering: Derive new attributes based on the original variables to better describe the phenomenon that will be modeled.
+
+Step 03: Exploratory Data Analysis: Explore the data to find insights and better understand the impact of variables on model learning.
+
+Step 04: Feature Selection: Selection of the most significant attributes for training the model.
+
+Step 05: Machine Learning Modelling: Machine Learning model training.
+
+Step 06: Hyperparameter Fine Tunning: hoose the best values for each of the parameters of the model selected from the previous step.
+
+Step 07: Convert Model Performance to Business Values: Convert the performance of the Machine Learning model into a business result.
+
+# 3.Machine Learning Model Implementation and performance.
+At this stage models used : *Linear Regression, *Deciosion Tree, *Random Forest Regressor
+
+# CONCLUSION:
+Random Forest Regressor results were much better than our baseline model. Next we'll try to tune the hyperparameters and check the results.
+
+Most of the sales was seen on Moday as Sunday all the stores remain close and from Monday it starts reopening.
+
+Promotions helped the stores in increase in there sales.
+
+Most of the stores should encourage promotions in order to hike there sales.
+
+Store B should increase in numbers for more sales
+
+Most stores have competition distance within the range of 0 to 10 kms and had more sales than stores far away probably indicating competition in busy locations vs remote locations.
+
+The MAPE of Random Forest Regressor was the lowest and seems to be the highest accurate model.
+
+Random Forest Tuned Model gave the best results and only 0.021% improvement was seen from the basic random forest model which indicates that all the trends and patterns that could be captured by these models without overfitting were done and maximum level of performance achievable by the model was achieved.
+
+
+
